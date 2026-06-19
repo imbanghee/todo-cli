@@ -1,1 +1,3 @@
 __pycache__/
+.env
+kakao_token.json

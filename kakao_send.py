@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 REST_API_KEY = os.environ["KAKAO_REST_API_KEY"]
+CLIENT_SECRET = os.environ["KAKAO_CLIENT_SECRET"]
 TOKEN_FILE = "kakao_token.json"
 
 
@@ -26,6 +27,7 @@ def refresh_access_token(tokens):
         data={
             "grant_type": "refresh_token",
             "client_id": REST_API_KEY,
+            "client_secret": CLIENT_SECRET,
             "refresh_token": tokens["refresh_token"],
         },
     )

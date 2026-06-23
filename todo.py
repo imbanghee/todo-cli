@@ -1,10 +1,21 @@
+from dataclasses import dataclass, field
+from datetime import datetime
+
+
+@dataclass
+class Task:
+    name: str
+    done: bool = False
+    created_at: str = field(default_factory=lambda: str(datetime.now()))
+
+
 def add_task(tasks, task_name):
-    tasks.append(task_name)
+    tasks.append(Task(name=task_name))
     return tasks
 
 
-def format_task(index, task_name):
-    return f"{index}. {task_name}"
+def format_task(index, task):
+    return f"{index}. {task.name}"
 
 
 def main():
